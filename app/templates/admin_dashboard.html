@@ -1,0 +1,104 @@
+<!-- admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #b02a37;
+        }
+
+        .dashboard {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome, Admin {{ username }}</h1>
+    <form action="{{ url_for('auth.logout') }}" method="post" style="margin:0;">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+</header>
+
+<div class="dashboard">
+    <div class="card-grid">
+        <div class="card">
+            <a href="{{ url_for('admin.manage_users') }}">Manage Users</a>
+        </div>
+        <div class="card">
+            <a href="{{ url_for('admin.manage_customers') }}">Manage Customers</a>
+        </div>
+        <div class="card">
+            <a href="{{ url_for('admin.manage_products') }}">Manage Products</a>
+        </div>
+        <div class="card">
+            <a href="{{ url_for('admin.manage_associations') }}">Manage Associations</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

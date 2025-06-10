@@ -1,0 +1,41 @@
+<!-- templates/customers_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Customer Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Customer Details</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% if customer %}
+      <ul class="list-group">
+        <li class="list-group-item"><strong>ID:</strong> {{ customer.id }}</li>
+        <li class="list-group-item"><strong>Name:</strong> {{ customer.name }}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{ customer.email }}</li>
+        <li class="list-group-item"><strong>Phone:</strong> {{ customer.phone }}</li>
+        <li class="list-group-item"><strong>Address:</strong> {{ customer.address }}</li>
+      </ul>
+
+      <a href="{{ url_for('user.view_customers') }}" class="btn btn-secondary mt-3">Back to Customers List</a>
+    {% else %}
+      <p>Customer details not found.</p>
+    {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
