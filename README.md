@@ -99,6 +99,8 @@ mini_crm/
 ├── run.py                    # Entry point for the app
 ├── requirements.txt          # Python package requirements
 ├── README.md                 # Project documentation
+
+
 🧾 License
 This project is licensed under the MIT License.
 Feel free to use and modify for educational or personal purposes.
