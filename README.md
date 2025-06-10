@@ -89,7 +89,7 @@ HTML/CSS
 bash
 Copy
 Edit
-mini_crm/
+crm_project/
 │
 ├── app/
 │   ├── routes/               # Flask Blueprints (auth, user, admin)
