@@ -102,7 +102,9 @@ mini_crm/
 
 
 🧾 License
+
 This project is licensed under the MIT License.
+
 Feel free to use and modify for educational or personal purposes.
 
 🙌 Acknowledgements
