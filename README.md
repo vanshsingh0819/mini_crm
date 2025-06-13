@@ -92,7 +92,7 @@ Edit
 crm_project/
 │
 ├── app/
-│   ├── routes/               # Flask Blueprints (auth, user, admin)
+│   ├── rouest/             # Flask Blueprints (auth, user, admin)
 │   ├── templates/            # HTML templates
 │   └── __init__.py           # App factory + MySQL config
 │
