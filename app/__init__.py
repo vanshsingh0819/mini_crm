@@ -11,27 +11,32 @@ def create_app():
     # Secret Key for sessions
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret-key')
 
-    # Parse MySQL connection URL from environment variable
-    db_url = os.getenv('Connection_URL')  # Make sure this key exists in Render
-    if db_url:
-        result = urlparse(db_url)
+    # ✅ Get database URL from environment variable
+    db_url = os.getenv('DATABASE_URL')  # Recommended key for Render or Railway
 
-        app.config['MYSQL_HOST'] = result.hostname
-        app.config['MYSQL_USER'] = result.username
-        app.config['MYSQL_PASSWORD'] = result.password
-        app.config['MYSQL_DB'] = result.path.lstrip('/')
-        app.config['MYSQL_PORT'] = result.port or 3306
+    if db_url:
+        try:
+            result = urlparse(db_url)
+
+            app.config['MYSQL_HOST'] = result.hostname
+            app.config['MYSQL_USER'] = result.username
+            app.config['MYSQL_PASSWORD'] = result.password
+            app.config['MYSQL_DB'] = result.path.lstrip('/')
+            app.config['MYSQL_PORT'] = result.port or 3306
+        except Exception as e:
+            raise ValueError(f"Invalid DATABASE_URL format: {e}")
     else:
-        # fallback for local development
+        # 🔧 Local development fallback
         app.config['MYSQL_HOST'] = 'localhost'
         app.config['MYSQL_USER'] = 'root'
         app.config['MYSQL_PASSWORD'] = '5432'
         app.config['MYSQL_DB'] = 'crm_project'
+        app.config['MYSQL_PORT'] = 3306
 
-    # Initialize MySQL
+    # 🔌 Initialize MySQL
     mysql.init_app(app)
 
-    # Import and register Blueprints
+    # 🔗 Import and register Blueprints
     from app.routes.auth import auth_bp
     from app.routes.admin import admin_bp
     from app.routes.user import user_bp
@@ -42,6 +47,7 @@ def create_app():
     app.register_blueprint(user_bp, url_prefix='/user')
     app.register_blueprint(assoc_bp, url_prefix='/assoc')
 
+    # 🌐 Home Route
     @app.route('/')
     def home():
         return render_template('welcome.html')
