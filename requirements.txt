@@ -7,7 +7,7 @@ certifi==2025.4.26
 charset-normalizer==3.4.2
 click==8.1.8
 colorama==0.4.6
-comtypes==1.4.11
+# comtypes==1.4.11  # Windows-only
 dicttoxml==1.7.16
 docopt==0.6.2
 Flask==3.1.0
@@ -26,36 +26,35 @@ Jinja2==3.1.6
 Js2Py==0.74
 Mako==1.3.10
 MarkupSafe==3.0.2
-MouseInfo==0.1.3
+# MouseInfo==0.1.3  # GUI/Windows-only
 msgspec==0.19.0
 mysql-connector-python==9.3.0
 mysqlclient==2.2.7
 packaging==25.0
 pillow==11.2.1
-pipwin==0.5.2
+# pipwin==0.5.2  # Windows-only
 psycopg2==2.9.10
 psycopg2-binary==2.9.10
-PyAudio==0.2.14
-PyAutoGUI==0.9.54
-PyGetWindow==0.0.9
+# PyAudio==0.2.14  # Needs system-level audio deps, may fail on Render
+# PyAutoGUI==0.9.54  # GUI-dependent
+# PyGetWindow==0.0.9  # GUI/Windows-only
 pyjsparser==2.7.1
-PyMsgBox==1.0.9
+# PyMsgBox==1.0.9  # GUI/Windows-only
 PyMySQL==1.1.1
 pyperclip==1.9.0
-pypiwin32==223
+# pypiwin32==223  # Windows-only
 PyPrind==2.11.3
-PyRect==0.2.0
-PyScreeze==1.0.1
+# PyRect==0.2.0  # GUI/Windows-only
+# PyScreeze==1.0.1  # GUI/Windows-only
 pySmartDL==1.3.4
 python-dotenv==1.1.0
-pyttsx3==2.98
+# pyttsx3==2.98  # Speech engine: fails in Linux without extra config
 pytweening==1.2.0
-pywhatkit==5.4
-pywin32==310
+# pywhatkit==5.4  # GUI/browser interaction
 requests==2.32.3
 six==1.17.0
 soupsieve==2.7
-SpeechRecognition==3.14.3
+# SpeechRecognition==3.14.3  # Needs mic/audio support
 SQLAlchemy==2.0.40
 standard-aifc==3.13.0
 standard-chunk==3.13.0
