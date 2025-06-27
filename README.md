@@ -86,19 +86,41 @@ Jinja2 Templates
 HTML/CSS
 
 📁 Project Structure
-bash
-Copy
-Edit
-crm_project/
-│
-├── app/
-│   ├── routes/               # Flask Blueprints (auth, user, admin)
-│   ├── templates/            # HTML templates
-│   └── __init__.py           # App factory + MySQL config
-│
-├── run.py                    # Entry point for the app
-├── requirements.txt          # Python package requirements
-├── README.md                 # Project documentation
+crm_project/ 
+│ ── app                                                      (folder) 
+│             ├── __init__.py                      
+│             ├── routes                                 (folder)                       
+│              │            ├── auth.py              
+│              │            ├── admin.py              
+│              │            ├── user.py                
+│              │            ├── association.py  
+│              │            └──_ init__.py 
+│              ├── templates                        (folder)  
+│              │            ├── login.html 
+│              │            ├── register.html 
+│              │            ├── admin_dashboard.html 
+│              │            ├── user_dashboard.html 
+│              │            ├── customers.html 
+│              │            ├── products.html 
+│              │            ├── customer_details.html  
+│              │            ├── product_details.html    
+│              │            ├── associations.html     
+│              │            ├── users.html 
+│              │            ├── add_customer.html 
+│              │            ├── add_product.html 
+│              │            ├── welcome.html 
+│              │            ├── product_user.html          
+│              │            ├── customer_details.html  
+│              │            ├── customers_details.html  
+│              │            ├── customers_user.html 
+│              │            ├── edit_ customer.html 
+│              │            └── edit_ product.html 
+├── .gitignore 
+├── README.md 
+├── requirement.txt 
+├── run.py 
+├── test_db.py 
+└── wsgi.py 
 
 
 🧾 License
